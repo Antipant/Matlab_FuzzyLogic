@@ -1,0 +1,115 @@
+[System]
+Name='Kurs'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=2
+NumRules=40
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='дистанция_до_препятствия'
+Range=[0 60]
+NumMFs=4
+MF1='close':'trimf',[0 0 22.5]
+MF2='medium':'trimf',[2.503 25 47.5]
+MF3='far':'trimf',[27.5 50 50]
+MF4='very_far':'trapmf',[50 50 120 140]
+
+[Input2]
+Name='дистанция_до_цели'
+Range=[0 30]
+NumMFs=3
+MF1='On_top':'trimf',[0 0 12.5]
+MF2='medium':'trimf',[5 12.5 20]
+MF3='far':'trapmf',[12.5 25 40 40.8]
+
+[Input3]
+Name='угол_до_препятствия'
+Range=[-1.6 1.6]
+NumMFs=6
+MF1='Neg_big':'trimf',[-1.6 -1.6 -1]
+MF2='Neg_med':'trimf',[-1.4 -0.8 -0.2]
+MF3='Neg_small':'trimf',[-0.6 0 0]
+MF4='Pos_small':'trimf',[0 0 0.6]
+MF5='Pos_med':'trimf',[0.2 0.8 1.4]
+MF6='Pos_big':'trimf',[1 1.6 1.6]
+
+[Input4]
+Name='угол_до_цели'
+Range=[-3.2 3.2]
+NumMFs=7
+MF1='Neg_big':'trapmf',[-3.2 -3.2 -1.6 -1]
+MF2='Neg_med':'trimf',[-1.5 -1 -0.5]
+MF3='Neg_Small':'trimf',[-1 -0.5 0]
+MF4='Zero':'trimf',[-0.5 0 0.5]
+MF5='Pos_small':'trimf',[0 0.5 1]
+MF6='Pos_med':'trimf',[0.5 1 1.5]
+MF7='Pos_big':'trapmf',[1 1.6 3.2 3.2]
+
+[Output1]
+Name='скорость'
+Range=[0 1]
+NumMFs=4
+MF1='very_slow':'trimf',[0 0 0.35]
+MF2='slow':'trimf',[0 0.35 0.7]
+MF3='fast':'trimf',[0.35 0.7 1]
+MF4='very_fast':'trimf',[0.7 1 1]
+
+[Output2]
+Name='угол'
+Range=[-1.6 1.6]
+NumMFs=7
+MF1='Neg_big':'trimf',[-1.6 -1.6 -0.8]
+MF2='Neg_med':'trimf',[-1.2 -0.8 -0.4]
+MF3='Neg_small':'trimf',[-0.8 -0.4 0]
+MF4='Zero':'trimf',[-0.4 0 0.4]
+MF5='Pos_small':'trimf',[0 0.4 0.8]
+MF6='Pos_med':'trimf',[0.4 0.8 1.2]
+MF7='Pos_big':'trimf',[0.8 1.6 1.6]
+
+[Rules]
+4 3 0 0, 3 0 (1) : 1
+4 2 0 0, 2 0 (1) : 1
+4 1 0 0, 1 0 (1) : 1
+4 0 0 1, 0 1 (1) : 1
+4 0 0 2, 0 2 (1) : 1
+4 0 0 3, 0 3 (1) : 1
+4 0 0 4, 0 4 (1) : 1
+4 0 0 5, 0 5 (1) : 1
+4 0 0 6, 0 6 (1) : 1
+4 0 0 7, 0 7 (1) : 1
+3 0 5 0, 4 4 (1) : 1
+3 0 4 0, 3 3 (1) : 1
+3 0 3 0, 3 5 (1) : 1
+3 0 2 0, 4 4 (1) : 1
+2 0 6 0, 3 4 (1) : 1
+2 0 5 0, 2 3 (1) : 1
+2 0 4 0, 2 2 (1) : 1
+2 0 3 0, 2 6 (1) : 1
+2 0 2 0, 2 5 (1) : 1
+2 0 1 0, 3 4 (1) : 1
+1 0 6 0, 2 3 (1) : 1
+1 0 5 0, 1 2 (1) : 1
+1 0 4 0, 1 1 (1) : 1
+1 0 3 0, 1 7 (1) : 1
+1 0 2 0, 1 6 (1) : 1
+1 0 1 0, 2 5 (1) : 1
+3 0 6 1, 3 1 (1) : 1
+3 0 6 2, 3 2 (1) : 1
+3 0 6 3, 3 3 (1) : 1
+3 0 6 4, 3 4 (1) : 1
+3 0 6 5, 3 5 (1) : 1
+3 0 6 6, 3 6 (1) : 1
+3 0 6 7, 3 0 (1) : 1
+3 0 1 1, 3 1 (1) : 1
+3 0 1 2, 3 2 (1) : 1
+3 0 1 3, 3 3 (1) : 1
+3 0 1 4, 3 4 (1) : 1
+3 0 1 5, 3 5 (1) : 1
+3 0 1 6, 3 6 (1) : 1
+3 0 1 7, 3 7 (1) : 1
